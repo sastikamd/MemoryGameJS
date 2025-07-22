@@ -2,9 +2,7 @@ const gridContainer = document.querySelector(".grid-container");
 let cards = [];
 let firstCard, secondCard;
 let lockBoard = false;
-let score = 0;
 
-document.querySelector(".score").textContent = score;
 
 fetch("./data.json")
   .then((res) => res.json())
@@ -55,8 +53,6 @@ function flipCard() {
   }
 
   secondCard = this;
-  score++;
-  document.querySelector(".score").textContent = score;
   lockBoard = true;
 
   checkForMatch();
@@ -92,8 +88,6 @@ function resetBoard() {
 function restart() {
   resetBoard();
   shuffleCards();
-  score = 0;
-  document.querySelector(".score").textContent = score;
   gridContainer.innerHTML = "";
   generateCards();
 }
